@@ -1,0 +1,12 @@
+<h1 > List of all Books</h1>
+
+<%= link_to "create new book", new_book_path  %>
+
+<%= @book.each do |item|%>  
+<h2 > Name : <%= item.name%></h2>
+<p >  Description :<%= item.description %></p>
+<%= link_to "View", book_path(item) %>
+<%= link_to "Edit" , edit_book_path(item) %>
+<%= link_to "delete" , book_path(item),data: { "turbo-method": :delete , "turbo-confirm": "Are you sure ?"} %>
+
+<% end%>

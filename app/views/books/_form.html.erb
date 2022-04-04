@@ -1,0 +1,25 @@
+
+<% if @book.errors.any? %>
+    <h1> You have errors</h1>
+    <ul>
+    <% @book.errors.full_messages.each do |msg|%>
+        <li><%=msg%> </li>
+    <%end%>
+    </ul>
+<% end %>
+
+<%= form_with(model: @book) do |f|%>
+
+    <p>
+        <%= f.label :name %> <br>
+        <%= f.text_field :name %>
+    </p>
+
+    <p>
+        <%= f.label :description%><br>
+        <%=f.text_area :description%>
+    </p>
+    <p>
+        <%= f.submit%>
+    </p>
+<% end %>
